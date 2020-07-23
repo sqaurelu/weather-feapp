@@ -1,4 +1,8 @@
 import React from "react";
+import { Switch, Route, withRouter } from "react-router";
+
+import CityList from "./CityList";
+import Weather from "./Weather/index";
 
 const API_CITIES = "http://localhost:8888//weather-service/weathers/cities";
 
@@ -27,16 +31,25 @@ class Cities extends React.Component {
   }
 
   render() {
+    const { match } = this.props;
     const { cities } = this.state;
 
     return (
       <div>
         <h1>Cities</h1>
         <p>City list</p>
-        <div>{cities.join(" ")}</div>
+
+        <Switch>
+          <Route path={`${match.path}/:cityName`} component={Weather} />
+          <Route
+            exact
+            path={match.path}
+            render={() => <CityList cities={cities} />}
+          />
+        </Switch>
       </div>
     );
   }
 }
 
-export default Cities;
+export default withRouter(Cities);
