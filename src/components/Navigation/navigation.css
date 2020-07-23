@@ -1,0 +1,10 @@
+.navigation {
+  margin: 0;
+  padding: 20px;
+  list-style: none;
+}
+
+.navigation li {
+  display: inline-block;
+  margin: 0 1em;
+}
