@@ -20,6 +20,7 @@ class Weather extends React.Component {
 
   };
 
+
   componentDidMount() {
     const { cityName } = this.props.match.params;
     console.log("cityName : ", cityName);
@@ -59,10 +60,6 @@ class Weather extends React.Component {
 
 };
 
-// 도시이름(cityName)
-//   - 날씨(data.weather[0].main),
-//   - 날씨 상세(data.weather[0].description),
-//     - 온도(data.main.temp)
-
 export default Weather;
+
 
